@@ -122,6 +122,7 @@ Http parameter pollution: Send duplicate parameters, custom pRameters and note t
 Test for POST REQUEST  as GET and make sure server does not process it. (proxy) 
 
 Test for GET request as HEAD which requires authentication is not treated differently. (Proxy)
+Find a page in the app that cannot be accessed by default and gives you 302 redirect. Try to access the page using HEAD method instead of GET. If you get a 200 response, it means the access control is broken.
 
 Test for xss reflected/stored, Dom based 
 
