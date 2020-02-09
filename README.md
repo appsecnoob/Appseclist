@@ -16,7 +16,7 @@ Check for server side code in responses, such as may be found in <% tags like th
 
 Sensitive information passed in get request or in query string of a post.
 
-For. Net applications check that the views tate is signed and encrypted.
+For. Net applications check that the views tate is signed and encrypted.(Proxy Required)
 
 Check to see private email are not disclosed in html source.
 
@@ -45,7 +45,7 @@ Password length
 Password complexity 
 Password history
 
-Secial characters accepted as input
+Special characters accepted as input
 
 Remember me function should not be there in case of financial application. 
 
@@ -121,9 +121,9 @@ Http parameter pollution: Send duplicate parameters, custom pRameters and note t
 
 Test for POST REQUEST  as GET and make sure server does not process it. (proxy) 
 
-Test for GET request as HEAD which requires authentication is not treated differently. 
+Test for GET request as HEAD which requires authentication is not treated differently. (Proxy)
 
-Test for xss reflected/stored, Dom based
+Test for xss reflected/stored, Dom based 
 
 Check for ui redress aka clickjacking> anti click jacking header is present or not, frame busting code is present or not. 
 
