@@ -81,3 +81,102 @@ Test logout functionality Session should terminate.
 
 
 Idle session timeout test (15 minutes) 
+
+Verify Concurrent logins, check last login timestamp being displayed to users
+
+Test Session fixation attack by using another session ID (unused) 
+Check to see if session Id changes after authentication 
+
+
+Session Hijacking > use xss if you can to demo cookie stealing and then set that cookie into a new browser using a cookie editor or developer tools in a new browser.
+
+Test Logout functionality.
+
+Cookies without expiration time should not have sensitive data.
+Persistant cookies check use about:cache? storage=disk&context=
+In mozilla
+
+Verify that Set-Cookie headers include secure and httponly flags and path is set to application root not webserver root. 
+
+Check to see if cookies are controlling user privileges try to escalate privileges using cookies 
+
+Compare one users cookies to another users look for similarities that may expose info
+
+Check that cookies are deleted from browser on Logout, by a Set-Cookie header with a null or meaningless value. 
+
+Session puzzling: verify if application provides access to internal functionality or pages after accessing anonymous functionality like forgot password. 
+
+Client side session defenses: session timeout or termination on Web browser close event. 
+On idle session timeout event check for Redirection to login page or the same resource which is presented on Logout. 
+
+Input validation: format, length, type(data type) and range
+
+Omit parameters from requests and note applications response. (use a proxy to intercept and omit parameters) 
+
+Send parameters with null values and note the applications response( use proxy) 
+
+Send parameters or cookies with extremely long values to be sure they are handled gracefully. (use proxy) 
+
+Http parameter pollution: Send duplicate parameters, custom pRameters and note the applications response. (proxy) 
+
+Test for POST REQUEST  as GET and make sure server does not process it. (proxy) 
+
+Test for GET request as HEAD which requires authentication is not treated differently. 
+
+Test for xss reflected/stored, Dom based
+
+Check for ui redress aka clickjacking> anti click jacking header is present or not, frame busting code is present or not. 
+
+Test for sql injection 
+
+Test for host header injection by replacing host request  header value with a malicious one try bypass validation by adding malicious domain in addition to original domain etc. (proxy) 
+
+Test for os command injection(proxy) 
+
+Test for Xml external entity in case website is processing Xml (proxy) 
+
+Remote or local file inclusion
+
+File upload test cases
+File extension check(malicious extension, multiple extensions and null byte extensions) 
+File size check
+Anti-virus scanning
+Test for ability to retrieve uploaded file (rce) 
+Unvalidated redirects and forwards
+
+Http response splitting
+
+Http server error 500
+
+Check for Eval() function in client side code(js). Verify that user-controlled input is not passed to this function call. 
+
+Outdated 3rd party software> if you found out the version number of any component search the Web for any vulnerabilities reported against that version
+
+Default credentials have been disabled
+
+Look for config files that should not be accessible, such as global.asax, Web.xml,.htaccess, Web.config, app.config, etc. 
+
+Verify Directory listing or directory indexing is disabled. /images is a good place to start. 
+
+Check for hidden directories based on target platform. 
+
+Check for alternate versions of files by altering file extensions. 
+
+Check for application test pages or scripts by common names ( eg. Test. Aspx) or by altering legitimate resource names. 
+
+Check for path traversal by requesting things such as... /.. /.. /.. /.. /.. /etc/paswd or ../../../../../boot.ini
+
+If web server is apache 
+Check for EXPECT header XSS
+Check for request method XSS by sending a script in place of request verb. 
+Check to see /server-status is not enabled. 
+Check to see /server-info is not enabled. 
+
+Verify dangerous http methods are disabled. 
+Only GET, HEAD and POST should be enabled. 
+Send OPTIONS request to any known resource, and test any methods that server says are enabled. 
+Also test, TRACE, PUT and DELETE, regardless of what OPTIONs report. 
+Also test DEBUG to make sure remote debugging is disabled for .net applications. 
+Also test, PROPFIND, CONNECT, COPY and other http methods. 
+
+Ensure content-type and charcterset are correctly stated in responses.
